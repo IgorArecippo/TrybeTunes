@@ -49,7 +49,6 @@ class App extends React.Component {
           path="*"
           component={ NotFound }
         />
-        <p>TrybeTunes</p>
       </div>
     );
   }
