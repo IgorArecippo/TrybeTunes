@@ -33,22 +33,21 @@ class App extends React.Component {
             path="/favorites"
             component={ Favorites }
           />
+          <Route
+            exact
+            path="/profile"
+            component={ Profile }
+          />
+          <Route
+            exact
+            path="/profile/edit"
+            component={ ProfileEdit }
+          />
+          <Route
+            path="*"
+            component={ NotFound }
+          />
         </Switch>
-        <Route
-          exact
-          path="/profile"
-          component={ Profile }
-        />
-        <Route
-          exact
-          path="/profile/edit"
-          component={ ProfileEdit }
-        />
-        <Route
-          exact
-          path="*"
-          component={ NotFound }
-        />
       </div>
     );
   }

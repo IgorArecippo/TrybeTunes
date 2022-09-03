@@ -9,6 +9,7 @@ class Login extends React.Component {
     userName: '',
     isLoading: false,
     isCreated: false,
+    clicked: false,
   };
 
   validaBotao = () => {
@@ -38,6 +39,7 @@ class Login extends React.Component {
     const { userName } = this.state;
     this.setState({
       isLoading: true,
+      clicked: true,
     }, async () => {
       await createUser({ name: userName });
       this.setState({
@@ -48,7 +50,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { isButtonDisabled, userName, isLoading, isCreated } = this.state;
+    const { isButtonDisabled, userName, isLoading, isCreated, clicked } = this.state;
     return (
       <div data-testid="page-login">
         Nome:
@@ -70,7 +72,8 @@ class Login extends React.Component {
           Entrar
         </button>
         {
-          (isLoading && <Loading />) && (isCreated && <Redirect to="/search" />)
+          clicked
+          && (!isLoading && isCreated ? <Redirect to="/search" /> : <Loading />)
         }
       </div>
     );
