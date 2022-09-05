@@ -20,7 +20,6 @@ class Header extends React.Component {
 
   recuperaNome = async () => {
     const func = await getUser();
-    console.log('teste', func);
     this.setState({
       isLoading: false,
       userName: func.name,
