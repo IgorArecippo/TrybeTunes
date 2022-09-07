@@ -26,11 +26,12 @@ export default class Album extends React.Component {
       albumName: musicas[0].collectionName,
       musics: musicasSlice,
       isLoading: false,
+      musicsObj: musicas,
     });
   };
 
   render() {
-    const { artistName, albumName, musics, isLoading } = this.state;
+    const { artistName, albumName, musics, isLoading, musicsObj } = this.state;
     return (
       <div>
         <div>
@@ -48,6 +49,8 @@ export default class Album extends React.Component {
                 key={ song.trackId }
                 trackName={ song.trackName }
                 previewUrl={ song.previewUrl }
+                musicsObj={ musicsObj }
+                trackId={ song.trackId }
               />
             ))
           }
