@@ -11,10 +11,17 @@ export default class Album extends React.Component {
     albumName: '',
     musics: [],
     isLoading: true,
+    musicsObj: {},
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.fetchMusics();
+    this.setState({
+      isLoading: true,
+    });
+    this.setState({
+      isLoading: false,
+    });
   }
 
   fetchMusics = async () => {
@@ -31,7 +38,8 @@ export default class Album extends React.Component {
   };
 
   render() {
-    const { artistName, albumName, musics, isLoading, musicsObj } = this.state;
+    const { artistName,
+      albumName, musics, isLoading, musicsObj } = this.state;
     return (
       <div>
         <div>
@@ -51,6 +59,7 @@ export default class Album extends React.Component {
                 previewUrl={ song.previewUrl }
                 musicsObj={ musicsObj }
                 trackId={ song.trackId }
+                // favoriteSongs={ favoriteSongs }
               />
             ))
           }
